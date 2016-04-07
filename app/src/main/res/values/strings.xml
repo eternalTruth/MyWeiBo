@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">MyWeibo</string>
+    <string name="app_name">我的微博</string>
     <string name="title_activity_auth">AuthActivity</string>
 </resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="47dp"
+    android:background="#E0F3F3F3"
+    android:orientation="horizontal">
+    <!--首页-->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/tabbar_home_auto"
+            android:gravity="center"
+            android:text="首页"
+            android:textSize="10sp" />
+        <!--新消息小红点-->
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignEnd="@+id/tv_home"
+            android:layout_alignRight="@+id/tv_home"
+            android:layout_alignTop="@+id/tv_home"
+            android:src="@drawable/new_dot"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <!--消息-->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/tabbar_message_auto"
+            android:gravity="center"
+            android:text="消息"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignEnd="@+id/tv_message"
+            android:layout_alignRight="@+id/tv_message"
+            android:layout_alignTop="@+id/tv_message"
+            android:src="@drawable/new_dot"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <!--发微博-->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/fl_post"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/rect_orgin">
+
+            <ImageView
+                android:id="@+id/textView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/tabbar_compose_icon_add" />
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+    <!--发现-->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_discovery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/tabbar_discover_auto"
+            android:gravity="center"
+            android:text="发现"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignEnd="@+id/tv_discovery"
+            android:layout_alignRight="@+id/tv_discovery"
+            android:layout_alignTop="@+id/tv_discovery"
+            android:src="@drawable/new_dot"
+            android:visibility="invisible" />
+    </RelativeLayout>
+    <!--我-->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/tabbar_profile_auto"
+            android:gravity="center"
+            android:text="我"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignEnd="@+id/tv_profile"
+            android:layout_alignRight="@+id/tv_profile"
+            android:layout_alignTop="@+id/tv_profile"
+            android:src="@drawable/new_dot"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</LinearLayout>

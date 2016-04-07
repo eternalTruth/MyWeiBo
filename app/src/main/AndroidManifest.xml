@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,8 +23,8 @@
         </activity>
         <activity
             android:name="com.chuang.myweibo.MainActivity"
-            android:label="@string/title_activity_auth"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="MainActivity"
+            android:theme="@style/AppTheme"></activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g .co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
@@ -34,9 +35,8 @@
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false" >
-        </activity>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

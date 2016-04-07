@@ -14,6 +14,9 @@ import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 
+/**
+ * 授权页面
+ */
 public class AuthActivity extends AppCompatActivity {
 
     private Button mbtnAuth;
@@ -27,12 +30,13 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_auth);
 
         mbtnAuth = (Button) findViewById(R.id.btn_auth);
 
         // 初始化微博对象
-        mAuthInfo = new AuthInfo(this, Contants.APP_KEY, Contants.REDIRECT_URI, Contants.SCOPE);
+        mAuthInfo = new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URI, Constants.SCOPE);
         mSsoHandler = new SsoHandler(AuthActivity.this, mAuthInfo);
     }
 
@@ -62,13 +66,12 @@ public class AuthActivity extends AppCompatActivity {
             if (mAccessToken.isSessionValid()) {
                 // 显示 Token
 //                updateTokenView(false);
-
                 // 保存 Token 到 SharedPreferences
                 AccessTokenKeeper.writeAccessToken(AuthActivity.this, mAccessToken);
                 Toast.makeText(AuthActivity.this,
                         "成功获取token", Toast.LENGTH_SHORT).show();
 
-//                Intent intent = new Intent("com.chuang.myweibo.MainActivity");
+                Intent intent = new Intent("com.chuang.myweibo.MainActivity");
 //                Bundle bundle = values;
 //                intent.putExtras(bundle);
 //                startActivity(intent);
