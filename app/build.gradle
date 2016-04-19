@@ -18,11 +18,12 @@ android {
         }
     }
 }
-
+//  compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 dependencies {
     compile 'com.android.support:appcompat-v7:23.+'
     compile 'com.android.support:design:23.2.1'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile project(':weibo_SDK')
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile files('libs/universal-image-loader-1.9.5.jar')
+    compile 'com.android.support:cardview-v7:23.+'
 }

@@ -1,12 +1,15 @@
 package com.chuang.myweibo.utils;
 
-import android.text.TextUtils;
 
-import java.text.ParseException;
+import android.text.TextUtils;
+import android.util.Log;
+
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
+import java.text.ParseException;
+
 
 /**
  * Date类型和日期相互转换
@@ -22,7 +25,8 @@ public class DateUtils {
     public static final String LOCALE_DATE_FORMAT = "yyyy年M月d日 HH:mm:ss";
     public static final String DB_DATA_FORMAT = "yyyy-MM-DD HH:mm:ss";
     public static final String NEWS_ITEM_DATE_FORMAT = "hh:mm M月d日 yyyy";
-    public static final String WeiBo_ITEM_DATE_FORMAT = "EEE MMM d HH:mm:ss Z yyyy";
+    public static final String WeiBo_ITEM_DATE_FORMAT = "EEE MMM dd HH:mm:ss '+0800' yyyy";
+    //Wed Jun 01 00:50:25 +0800 2011 -----"EEE MMM dd HH:mm:ss Z yyyy"
 
 
     public static String dateToString(Date date, String pattern)
@@ -55,8 +59,8 @@ public class DateUtils {
     /**
      * 将日期字符串转换为Date类型
      *
-     * @param dateStr 日期字符串
-     * @param type    日期字符串格式
+     * @param dateStr 日期字符串     Wed Jun 01 00:50:25 +0800 2011
+     * @param type    日期字符串格式 "EEE MMM d HH:mm:ss Z yyyy"
      * @return Date对象
      */
     public static Date parseDate(String dateStr, String type) {
@@ -64,10 +68,15 @@ public class DateUtils {
         Date date = null;
         try {
             date = df.parse(dateStr);
+            // TODO: 4-16 时区解析错误，java中+0800-->CST,这里是GMT-04:00 --待解决
+            // TODO: 4-16 更新：暂时方法（不完美）为忽略0800不解析 --暂解决
+            Log.d("date", "formatDate:之前" + dateStr);
+            Log.d("date", "formatDate:之后 " + df.parse(dateStr));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return date;
+
     }
 
     /**
@@ -204,6 +213,14 @@ public class DateUtils {
                 return dateStr;
             }
         }
+    }
+
+    public static String translateDate(String dateString) {
+        Date date = DateUtils.parseDate(dateString, DateUtils.WeiBo_ITEM_DATE_FORMAT);
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH:mm", Locale.US);//时间格式化
+        String time = sdf.format(date);
+        return time;
+
     }
 
 }

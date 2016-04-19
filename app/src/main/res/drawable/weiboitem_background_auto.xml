@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!--默认为白色，按压后变灰-->
-    <item android:drawable="@color/white" />
-    <item android:drawable="@drawable/weiboitem_background_highlighted"
-        android:state_pressed="true"/>
-
-</selector>

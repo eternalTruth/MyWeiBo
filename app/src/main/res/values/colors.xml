@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<color name="colorPrimary">#3F51B5</color>-->
+<!--<color name="colorPrimaryDark">#303F9F</color>-->
+<!--<color name="colorAccent">#FF4081</color>-->
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#03a9f4</color>
     <color name="colorAccent">#FF4081</color>
 
 
     <!--自定义颜色-->
-    <color name="transperant">#00000000</color>
+    <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color><!--白色 -->
     <color name="comm_grey">#DFDFDF</color><!-- 浅灰色 -->
-    <color name="mask_transperant">#AA000000</color>
+    <color name="mask_transparent">#AA000000</color>
     <color name="eighty_per_trans_black">#CC000000</color><!-- 黑色80%透明 -->
     <color name="sixty_per_trans_black">#AA000000</color><!-- 黑色60% 透明-->
     <color name="fourty_per_trans_black">#77000000</color><!-- 黑色40%透明 -->
@@ -19,7 +22,7 @@
     <color name="seventy_per_trans_white">#B3FFFFFF</color><!-- 白色70% 透明-->
     <color name="ninety_per_trans_white">#EDFFFFFF</color><!-- 白色90%透明 -->
 
-    <color name="sperate_white">#DDDDDD</color><!-- 弹窗分割线颜色 -->
+    <color name="separate_white">#DDDDDD</color><!-- 弹窗分割线颜色 -->
     <!-- chat box -->
     <color name="bubble_chatto_unread_bg">#8dcbfb</color>
     <color name="bubble_chatto_unread_stroke_bg">#578ff7</color>
@@ -263,11 +266,12 @@
 
     <!-- country code 界面 -->
     <color name="color_bg_topbar">#1b1926</color>
-    <color name="white50">#80ffffff</color>
     <color name="white30">#4cffffff</color>
-    <color name="white95">#f2ffffff</color>
-    <color name="white60">#99ffffff</color>
     <color name="white40">#66ffffff</color>
+    <color name="white50">#80ffffff</color>
+    <color name="white60">#99ffffff</color>
+    <color name="white80">#BBffffff</color>
+    <color name="white95">#f2ffffff</color>
     <color name="list_item_press">#F7F7F7</color>
     <color name="list_search_bg">#C9C9CE</color>
 

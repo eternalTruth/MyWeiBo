@@ -21,6 +21,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Log;
 
+import com.chuang.myweibo.home.activity.MainActivity;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 
 /**
@@ -30,6 +31,10 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
  * @since 2013-10-07
  */
 public class AccessTokenKeeper {
+    private static final String PREFERENCES_WEIBO_USER_NAME="com_chuang_myweibo";
+    private static final String KEY_WEIBO_USER_NAME="weibo_username";/////////
+
+
     private static final String PREFERENCES_NAME = "com_weibo_sdk_android";
 
     private static final String KEY_UID = "uid";
@@ -50,6 +55,7 @@ public class AccessTokenKeeper {
 
         SharedPreferences pref = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_APPEND);
         Editor editor = pref.edit();
+
         editor.putString(KEY_UID, token.getUid());
         editor.putString(KEY_ACCESS_TOKEN, token.getToken());
         editor.putString(KEY_REFRESH_TOKEN, token.getRefreshToken());
@@ -75,10 +81,23 @@ public class AccessTokenKeeper {
         token.setToken(pref.getString(KEY_ACCESS_TOKEN, ""));
         token.setRefreshToken(pref.getString(KEY_REFRESH_TOKEN, ""));
         token.setExpiresTime(pref.getLong(KEY_EXPIRES_IN, 0));
-        Log.d("readAccessToken", "AccessToken已从SP获取");
+
+//        Log.d("readAccessToken", "AccessToken已从SP获取");
         return token;
     }
 
+    public static void writeUserName(Context context,String username){
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_WEIBO_USER_NAME, Context.MODE_APPEND);
+        Editor editor = pref.edit();
+        editor.putString(KEY_WEIBO_USER_NAME,username);/////////////
+        editor.commit();
+    }
+
+    public static void readUserName(Context context){
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCES_WEIBO_USER_NAME, Context.MODE_APPEND);
+        MainActivity.weiboUserName=pref.getString(KEY_WEIBO_USER_NAME,"");
+//        Log.d("12","成功获取微博name  "+MainActivity.weiboUserName);
+    }
     /**
      * 清空 SharedPreferences 中 Token信息。
      *
