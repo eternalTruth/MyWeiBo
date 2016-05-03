@@ -126,6 +126,12 @@ public class WeiBoDetails extends Activity implements View.OnClickListener {
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (newState == RecyclerView.SCROLL_STATE_IDLE && mLastVisibleItemPositon + 1 == mAdapter.getItemCount()) {
+
+                    Log.d("12345", "mLastVisibleItemPositon  是" + mLastVisibleItemPositon);
+                    Log.d("12345", "mAdapter.getItemCount() 是" + mAdapter.getItemCount());
+                    Log.d("12345", "mCommentDatas.size() 是" + mCommentDatas.size());
+                    Log.d("12345", "mCommentCache.size()  是" + mCommentCache.size());
+
                     if (mCommentDatas.size() - 1 < mCommentCache.size() && mCommentDatas.size() != 0) {
                         //读取Cache缓存
                         Log.d(TAG, "onScrollStateChanged: 开始读取Cache缓存");

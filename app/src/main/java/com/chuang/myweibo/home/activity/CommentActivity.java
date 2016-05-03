@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chuang.myweibo.R;
@@ -24,6 +25,8 @@ public class CommentActivity extends Activity implements View.OnClickListener {
     //文本框
     private EditText editText;
     private String weiboId;
+    //
+    private TextView username;
 
     //--------------------------------------
 
@@ -34,6 +37,8 @@ public class CommentActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_comment_layout);
         weiboId = getIntent().getStringExtra("clicked_weiboID");
         ActivityCollector.addActivity(this);
+        username = (TextView) findViewById(R.id.toolbar_username);
+        username.setText(MainActivity.weiboUserName);
         setupListener();
     }
 
@@ -46,9 +51,9 @@ public class CommentActivity extends Activity implements View.OnClickListener {
     private void postComment() {
         editText = (EditText) findViewById(R.id.post_comment_content);
         String myComment = editText.getText().toString();
-        if (myComment != null && myComment.length() < 140) {
+        if (!myComment.equals("") && myComment.length() < 140) {
             MainFragment.mCommentsAPI.create(
-                    myComment,
+                    myComment,//String 评论内容
                     Long.parseLong(weiboId),//long id
                     false,//boolean 当评论转发的微博时，是否评论给原微博
                     new RequestListener() {
@@ -57,6 +62,7 @@ public class CommentActivity extends Activity implements View.OnClickListener {
                             if (!TextUtils.isEmpty(response)) {
                                 if (response.startsWith("{\"created_at\"")) {
                                     Toast.makeText(mContext, "评论发送成功", Toast.LENGTH_SHORT).show();
+                                    onBackPressed();
                                 } else {
                                     Toast.makeText(mContext, response, Toast.LENGTH_LONG).show();
                                 }

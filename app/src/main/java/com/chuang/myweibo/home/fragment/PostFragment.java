@@ -41,7 +41,7 @@ public class PostFragment extends Fragment implements View.OnClickListener {
     private void postWeibo() {
         editText = (EditText) mActivity.findViewById(R.id.post_weibo_content);
         String postContent = editText.getText().toString();
-        if (!postContent.equals("")) {
+        if (!postContent.equals("")&&postContent.length()<140) {
             MainFragment.mStatusesAPI.update(
                     postContent,//微博内容
                     null,//纬度

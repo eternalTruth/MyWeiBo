@@ -30,6 +30,7 @@ import com.sina.weibo.sdk.openapi.models.Status;
 import java.util.ArrayList;
 
 /**
+ * 主页“MainFragment”的微博列表适配器
  * Created by Chuang on 4-5.
  */
 public class WeiboAdapter extends RecyclerView.Adapter<ViewHolder> {

@@ -35,6 +35,12 @@
             android:label="WeiBoDetails">
 
         </activity>
+        <!--用户信息详情-->
+        <activity
+            android:name=".home.activity.UserInfoActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
         <!--转发-->
         <activity
             android:name=".home.activity.RepostActivity"

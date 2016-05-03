@@ -136,6 +136,7 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
                 //如果新状态是 停止滑动&&最后一个可见item为适配器的最后一个                          //itemCount=mData.size()+1
                 if (newState == RecyclerView.SCROLL_STATE_IDLE && mLastVisibleItemPositon + 1 == mAdapter.getItemCount()) {
                     if (mDatas.size() - 1 < mWeiBoCache.size() && mDatas.size() != 0) {//读取本地缓存数据
+                        //-1是因为第一个被空数据占据
                         Log.d("118", "开始读取本地缓存");
                         addDataFromCache(mLastVisibleItemPositon - 1);
                         mAdapter.setData(mDatas);
@@ -168,13 +169,6 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-        //监听刷新动作
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                pullToRefreshData();
-            }
-        });
         //初始化时获取微博数据
         mSwipeRefreshLayout.post(new Runnable() {
             @Override
@@ -184,6 +178,13 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
             }
         });
 
+        //监听刷新动作
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                pullToRefreshData();
+            }
+        });
     }
 
 
@@ -222,7 +223,7 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
                         });
             }
         } else {//网络未连接
-            ToastUtil.showShort(mContext, "网络请求失败，没有网络");
+            ToastUtil.showShort(mContext, "请求失败，没有网络");
         }
     }
 
@@ -230,13 +231,12 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
      * 下拉刷新 （从0开始获取
      */
     private void pullToRefreshData() {
-        Log.d("233", "下拉刷新微博");
         if (NetUtil.isConnected(mContext)) {//若已联网
             if (mAccessToken != null && mAccessToken.isSessionValid()) {//若Token有效
                 mStatusesAPI.friendsTimeline(
-                        0,//long since_id
-                        0,//long max_id
-                        NewFeature.GET_WEIBO_NUMS,//int count
+                        0,//long since_id 若指定，则返回比指定since_id大（晚）的微博，
+                        0,//long max_id 若指定，则返回比max_id小等（早）的微博
+                        NewFeature.GET_WEIBO_NUMS,//int count 返回微博条数
                         1,//int page
                         false,//boolean base_app
                         NewFeature.WEIBO_TYPE,//int featureType
@@ -266,8 +266,8 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
                 Log.d("228", "mAccessToken为空或无效");
             }
         } else {
-            getWeiBoCache();//从SP的第0条开始添加->weiboCache
             ToastUtil.showShort(mContext, "没有网络,读取本地缓存");
+            getWeiBoCache();//从SP的第0条开始添加->weiboCache
             mSwipeRefreshLayout.setRefreshing(false);//不显示刷新动画
         }
     }
@@ -290,16 +290,20 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
      * SP->mWeiBoCache->mData
      */
     private void getWeiBoCache() {
-        mWeiBoCache.clear();
-        mDatas.clear();
+
         String response = (String) SharedPreferencesUtil.get(mContext, "weibo", new String());
         if (response.startsWith("{\"statuses\"")) {
+            mWeiBoCache.clear();
+            mDatas.clear();
             mWeiBoCache = StatusList.parse(response).statusList;
-            mDatas.add(0, new Status());//从索引0开始添加数据
+            mDatas.add(0, new Status());//将索引0的位置占据
             addDataFromCache(0);
+
+            mAdapter.setData(mDatas);
+            mAdapter.notifyDataSetChanged();
+        }else{
+            Toast.makeText(mContext,"SP数据错误",Toast.LENGTH_SHORT).show();
         }
-        mAdapter.setData(mDatas);
-        mAdapter.notifyDataSetChanged();
     }
 
     /**
@@ -309,14 +313,14 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
     private void addDataFromCache(int start) {
         int count = 0;
         for (int i = start; i < mWeiBoCache.size(); i++) {
-            if (start == mWeiBoCache.size()) {
+            if (start == mWeiBoCache.size()) {//开始位置超过Cache的容量
                 ToastUtil.showShort(mContext, "本地缓存已经读取完！");
                 break;
             }
-            if (count == NewFeature.LOAD_WEIBO_ITEM) {//如果count=10
+            if (count == NewFeature.LOAD_WEIBO_ITEM) {//从start开始添加10条微博即结束
                 break;
             }
-            mDatas.add(mWeiBoCache.get(i));
+            mDatas.add(mWeiBoCache.get(i));//添加到mData的末尾
             count++;
         }
     }
@@ -361,8 +365,14 @@ public class MainFragment extends Fragment implements WeiboAdapter.OnItemClickLi
                 startActivity(intent);
                 break;
             case R.id.click_comment:
+
+//                if(((TextView)mActivity.findViewById(R.id.comment)).getText().equals("0")){
+//                    intent = new Intent(mActivity,WeiBoDetails.class);
+//                    intent.putExtra("clicked_")
+//                }else {
                 intent = new Intent(mActivity, CommentActivity.class);
                 intent.putExtra("clicked_weiboID", mDatas.get(position).id);
+//                }
                 startActivity(intent);
                 break;
             case R.id.click_feedlike:

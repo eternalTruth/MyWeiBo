@@ -24,13 +24,14 @@ import com.sina.weibo.sdk.openapi.models.Comment;
 import java.util.ArrayList;
 
 /**
+ * 在WeiBoDetails里展示评论列表的适配器
  * Created by Chuang on 4-15.
  */
 public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     //环境
     private Context mContext;
     private Activity mActivty;
-
+    //评论的item类型
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_FOOTER = 1;
     private static final int TYPE_COMMENT = 2;

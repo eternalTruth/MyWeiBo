@@ -15,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:clickable="true">
 
             <ImageView
@@ -47,7 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:clickable="true">
 
             <ImageView
@@ -135,6 +135,7 @@
 
                 <!--评论列表-->
                 <android.support.v7.widget.RecyclerView
+                    android:fitsSystemWindows="true"
                     android:id="@+id/commentRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

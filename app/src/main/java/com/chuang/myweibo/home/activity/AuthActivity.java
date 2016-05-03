@@ -130,10 +130,11 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                     weiboUserName = user.name;
                     //把用户名保存到SP
                     AccessTokenKeeper.writeUserName(AuthActivity.this, weiboUserName);
-
                     //跳转到MainAcivity
                     Intent intent = new Intent(AuthActivity.this, MainActivity.class);
                     startActivity(intent);
+                    //防止跳转后返回授权界面
+                    ActivityCollector.removeActivity(AuthActivity.this);
 
                 }
             }

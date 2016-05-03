@@ -1,9 +1,11 @@
 package com.chuang.myweibo.home.fragment;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 import com.chuang.myweibo.NewFeature;
 import com.chuang.myweibo.R;
 import com.chuang.myweibo.home.activity.SettingsActivity;
+import com.chuang.myweibo.home.activity.UserInfoActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
@@ -33,6 +36,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private Context mContext;
     private Activity mActivity;
     private View mView;
+
+    private Point p;
     //图片处理
     private DisplayImageOptions options;
     //微博工具类
@@ -47,6 +52,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private TextView mStatuses_count;
     private TextView mFriends_count;
     private TextView mFollowers_count;
+
+    private Intent intent;
 
     String TAG = "123";
 
@@ -134,6 +141,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
         Log.d(TAG, "onDestroy: ");
     }
 
@@ -219,9 +227,23 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        View view = mActivity.findViewById(R.id.profile_myimg);
         switch (v.getId()) {
             case R.id.click_mycard:
                 Toast.makeText(mContext, "我的信息", Toast.LENGTH_SHORT).show();
+                intent = new Intent(mActivity, UserInfoActivity.class);
+//                startActivity(intent);
+//                startActivity(
+//                        intent,
+//                        ActivityOptions.makeSceneTransitionAnimation(
+//                                mActivity,
+//                                Pair.create(view, "user_img")
+//                        ).toBundle()
+//                );
+                startActivity(
+                        intent,
+                        ActivityOptions.makeSceneTransitionAnimation(mActivity).toBundle()
+                );
                 break;
             case R.id.click_mystatus:
                 Toast.makeText(mContext, "我的微博", Toast.LENGTH_SHORT).show();
@@ -233,8 +255,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(mContext, "我的粉丝", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.toolbar_settings:
-                Toast.makeText(mContext, "设置", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(mActivity, SettingsActivity.class));
+
                 break;
         }
     }

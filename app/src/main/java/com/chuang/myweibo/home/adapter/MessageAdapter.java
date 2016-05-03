@@ -16,6 +16,7 @@ import com.chuang.myweibo.utils.DensityUtil;
 import java.util.ArrayList;
 
 /**
+ * 展示“消息”碎片列表内容
  * Created by Chuang on 4-13.
  */
 public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
