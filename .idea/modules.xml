@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyWeiBo.iml" filepath="$PROJECT_DIR$/MyWeiBo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qingWeiBo/app.iml" filepath="$PROJECT_DIR$/qingWeiBo/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/weiboSDK/weibo_SDK.iml" filepath="$PROJECT_DIR$/weiboSDK/weibo_SDK.iml" />
     </modules>
   </component>

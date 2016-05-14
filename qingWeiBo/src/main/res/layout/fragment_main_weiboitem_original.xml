@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><!--原创微博的item布局-->
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="20dp"
+    android:orientation="vertical"
+    card_view:cardBackgroundColor="@color/white"
+    card_view:cardCornerRadius="10dp">
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/click_original_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <include layout="@layout/fragment_main_weiboitem_title" />
+
+            <TextView
+                android:id="@+id/weibo_Content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:text="【国人用《我的世界》重现圆明园建筑群：精湛到惊叹！】中国团队“史诗工坊”利用14个月的时间，在《我的世界》中重现了恢弘的圆明园！他们在建筑过程中参考了大量的书籍和文献资料，实地考察，克服了重重困难。一起来看..."
+                android:textColor="#222222"
+                android:textSize="15sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/weibo_image"
+                android:layout_width="match_parent"
+                android:layout_height="110dp" />
+
+        </LinearLayout>
+
+        <include layout="@layout/fragment_main_weiboitem_count" />
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

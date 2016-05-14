@@ -44,12 +44,12 @@
         "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_button_blue_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_logo.png",
-        "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_logo.png"
-    },
-    {
         "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_login_button_with_frame_logo_pressed.png",
         "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_login_button_with_frame_logo_pressed.png"
+    },
+    {
+        "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_logo.png",
+        "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_logo.png"
     },
     {
         "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_com_sina_weibo_sdk_login_button_with_frame_logo_focused.png",

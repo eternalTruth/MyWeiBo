@@ -1,2 +1,2 @@
-include ':app', ':weibo_SDK'
+include ':qingWeiBo', ':weibo_SDK'
 project(':weibo_SDK').projectDir = new File('weiboSDK')

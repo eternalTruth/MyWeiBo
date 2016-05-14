@@ -19,6 +19,8 @@ package com.sina.weibo.sdk.openapi.models;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.TextUtils;
 
 /**
@@ -27,7 +29,7 @@ import android.text.TextUtils;
  * @author SINA
  * @since 2013-11-24
  */
-public class Geo {
+public class Geo implements Parcelable{
     
     /** 经度坐标 */
     public String longitude;
@@ -81,5 +83,23 @@ public class Geo {
         geo.more            = jsonObject.optString("more");
         
         return geo;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.longitude);
+        dest.writeString(this.latitude);
+        dest.writeString(this.city);
+        dest.writeString(this.province);
+        dest.writeString(this.city_name);
+        dest.writeString(this.province_name);
+        dest.writeString(this.address);
+        dest.writeString(this.pinyin);
+        dest.writeString(this.more);
     }
 }

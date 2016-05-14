@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chuang.myweibo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <!--授权界面-->
+        <activity
+            android:name=".home.activity.AuthActivity"
+            android:label="AuthActivity">
+
+        </activity>
+        <!--主界面-->
+        <activity android:name=".home.activity.MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <!--微博详情-->
+        <activity
+            android:name=".home.activity.weibodetail.WeiBoDetails"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--@我的-->
+        <activity
+            android:name=".home.fragment.message.mention.MentionMeActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--评论我的-->
+        <activity
+            android:name=".home.fragment.message.comment.MyCommentActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--用户信息详情-->
+        <activity
+            android:name=".home.activity.UserInfoActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--用户粉丝列表-->
+        <activity
+            android:name=".home.activity.userdetail.FollowerActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--用户关注列表-->
+        <activity
+            android:name=".home.activity.userdetail.FriendsActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--用户微博列表-->
+        <activity
+            android:name=".home.activity.userdetail.UserWeiboActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--转发-->
+        <activity
+            android:name=".home.activity.MyRepostActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--评论-->
+        <activity
+            android:name=".home.activity.CommentActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!--设置-->
+        <activity
+            android:name=".home.activity.SettingsActivity"
+            android:label="WeiBoDetails">
+
+        </activity>
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g .co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!--注册授权页面-->
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

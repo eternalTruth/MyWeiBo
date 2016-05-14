@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--顶部空行5dp-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+        <!--微博内容-->
+        <RelativeLayout
+            android:id="@+id/detail_weibo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="20dp"
+                android:orientation="vertical"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardCornerRadius="10dp">
+
+                <!--包住转评赞-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--发博人的内容-->
+                    <LinearLayout
+                        android:id="@+id/click_retweet_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/fragment_main_weiboitem_title" />
+
+                        <TextView
+                            android:id="@+id/retweet_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:text="不对我就是家长 //@博物杂志:不是蜱，是臭虫，都不是一个纲的，课上怎么听的，叫你家长来 //@博物君的夹竹桃天蛾幼虫君:开始以为是蜱虫床虱之类的，想提醒博主免得咬伤，仔细一看，真的是蜱虫哈哈哈哈"
+                            android:textColor="#222222"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                    <!--转发原作者的内容-->
+
+                    <LinearLayout
+                        android:id="@+id/click_retweet_original_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/weiboitem_retweet_background_auto"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/origin_nameAndcontent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="\@一枚枚吃药： @博物杂志 @博物君的夹竹桃天蛾幼虫君 博物君救命救命，请问这玩意是什么？是不是咬人？"
+                            android:textColor="#5D5D5D"
+                            android:textSize="15sp" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/origin_imageList"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:clickable="true"
+                            android:paddingTop="8dp">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+                    <include layout="@layout/fragment_main_weiboitem_count" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+        <!--微博与评论的分隔空间-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/transparent" />
+
+        <!--转发评论的导航-->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/detail_retweet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="18dp"
+                    android:text="转发" />
+
+                <TextView
+                    android:id="@+id/detail_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@+id/detail_retweet"
+                    android:text="评论" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="18dp"
+                    android:text="赞" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

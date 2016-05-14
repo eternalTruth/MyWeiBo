@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/message_center_content"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/weiboitem_retweet_background_auto"
+    android:clickable="true"
+    android:orientation="horizontal">
+
+    <!--头像-->
+    <ImageView
+        android:id="@+id/mentionitem_img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avator_default" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mentionitem_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="/@昵称"
+            android:textColor="#313131"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/mentionitem_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:lines="2"
+            android:text="写代码到半夜，兴奋得睡不着。。。不成熟的表现成熟的表现[doge]"
+            android:textColor="#909090"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

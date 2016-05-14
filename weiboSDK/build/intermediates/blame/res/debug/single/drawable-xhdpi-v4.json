@@ -20,12 +20,12 @@
         "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\src\\main\\res\\drawable-xhdpi\\ic_com_sina_weibo_sdk_button_blue_focused.9.png"
     },
     {
-        "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png",
-        "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\src\\main\\res\\drawable-xhdpi\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png"
-    },
-    {
         "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_com_sina_weibo_sdk_logo.png",
         "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\src\\main\\res\\drawable-xhdpi\\ic_com_sina_weibo_sdk_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png",
+        "source": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\src\\main\\res\\drawable-xhdpi\\ic_com_sina_weibo_sdk_button_grey_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\Chuang\\AndroidStudioProjects\\MyWeiBo\\weiboSDK\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_com_sina_weibo_sdk_button_grey_normal.9.png",
